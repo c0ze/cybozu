@@ -1,0 +1,30 @@
+{
+  "manifest_version": 2,
+  "name":             "Cybozu import",
+  "description":      "Import cybozu events to Google Calendar",
+  "version":          "1.0.0",
+
+  "short_name":       "Cybozu",
+
+  "permissions": [
+    "storage"
+  ],
+
+  "icons": {
+     "128": "res/icon.png"
+  },
+
+  "content_scripts": [ {
+     "js":      [ "js/jquery-2.1.1.min.js", "js/mustache.js", "js/cybozu.js" ],
+     "css":     [ "css/cybozu.css" ],
+     "matches": [ "https://*.cybozu.com/o/ag.cgi?page=PersonalScheduleExport" ]
+  } ],
+
+  "background": {
+    "scripts": [ "js/background.js" ]
+  },
+
+  "web_accessible_resources": [ "css/cybozu.css", "templates/*", "js/pushstate.js", "res/favicon.png" ],
+
+  "options_page": "options/options.html"
+}
